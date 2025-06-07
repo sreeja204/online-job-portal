@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Applicants</title>
+    
+
+    <!-- <link rel="stylesheet" href="{% static 'view_applicants.css' %}"> -->
+    <style>
+        /* view_applicants.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: black;
+    margin-bottom: 30px;
+}
+
+table {
+    width: 90%;
+    margin: 0 auto 40px auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+thead {
+    background-color:white;
+    color: black;
+    border: 2px solid #000;  /* ← Add this line */
+}
+
+thead th {
+    padding: 15px;
+    font-size: 16px;
+    text-align: left;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody td {
+    padding: 12px 15px;
+    font-size: 15px;
+    color: #333;
+    vertical-align: middle;
+}
+
+a {
+    color: #0b3e49;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a.download-link {
+    background-color: #0b3e49;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+a.download-link:hover {
+    background-color: #0b3e49;
+}
+
+p {
+    text-align: center;
+    font-size: 18px;
+    color: #777;
+}
+
+/* Back Button Styling (already in your template inline) */
+.profile-actions {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.profile-actions .btn.back {
+    padding: 0.8rem 2rem;
+    background-color:white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    
+}
+
+.profile-actions .btn.back:hover {
+    background-color:white;
+    color: black;
+}
+    </style>
+</head>
+<body>
+    <h1>Applicants for Your Job Posts</h1>
+
+    {% if applications %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Job Title</th>
+                    <th>Applicant Name</th>
+                    <th>Email</th>
+                    <th>Skills</th>
+                    <th>Status</th>
+                    <th>Resume</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for application in applications %}
+                    <tr>
+                        <td>{{ application.job.title }}</td>
+                        <td>{{ application.user.Name }}</td>
+                        <td>{{ application.user.Email }}</td>
+                        <td>{{ application.user.skills }}</td>
+                        <td>{{ application.status }}</td>
+                        <td>
+                            {% if application.user.resume %}
+                                <a href="{{ application.user.resume.url }}" download>Download</a>
+                            {% else %}
+                                N/A
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No applicants yet.</p>
+    {% endif %}
+
+    <div class="profile-actions">
+            <a href="{% url 'recruiter_dashboard' %}" class="btn back">← Back to Dashboard</a>
+        </div>
+</body>
+</html>

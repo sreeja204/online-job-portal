@@ -1,0 +1,72 @@
+/* sign.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.signup--container {
+    background-color: #ffffff;
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.signup--container h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 0.9rem;
+    background-color: #0b3e49;
+    color: #ffffff;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #284f58;
+}

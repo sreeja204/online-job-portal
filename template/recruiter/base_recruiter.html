@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Recruiter{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'recrubase.css' %}">
+</head>
+<body>
+
+    <!-- This nav only appears on recruiter pages -->
+    <nav>
+        <ul>
+            <li><a href="{% url 'recruiter_dashboard' %}">Dashboard</a></li>
+            <li><a href="{% url 'recruiter_profile' %}">Profile</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>

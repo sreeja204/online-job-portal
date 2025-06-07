@@ -1,0 +1,42 @@
+/* Base styles for all recruiter pages */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f7fa;
+}
+
+/* Navbar styles */
+nav {
+    background-color: #0a66c2;
+    padding: 15px 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Main content layout */
+.main-content {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+

@@ -1,0 +1,371 @@
+*, ::after, ::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color:#fff;
+}
+
+/* NAVBAR STYLING */
+.nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    background-color: #fff;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    width: 70px;
+    height: auto;
+}
+
+.nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+}
+
+.nav ul li {
+    margin-right: 30px;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.nav ul .active::after {
+    content: '';
+    width: 50%;
+    height: 3px;
+    /* background-color: #ff1cd9; */
+    display: block;
+    margin-top: 5px;
+}
+
+/* LOGIN BUTTONS */
+.login-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.login-buttons .btn {
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.login-buttons .btn-outline-primary:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* DROPDOWN */
+.dropdown .btn-primary {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+
+.dropdown-menu {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* SLOGAN */
+.slogan {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+/* SEARCH SECTION */
+.search-section {
+    position: relative;
+    background: url("/static/images/lap.webp") no-repeat center center;
+    background-size: cover;
+    padding: 200px 0;
+    z-index: 1;
+}
+
+.search-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+}
+
+.search-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* FORM STYLING */
+.search-section .form-control-lg {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.search-section .form-control-lg::placeholder {
+    color: #eee;
+}
+
+.search-section .form-control-lg:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+}
+
+/* BUTTON */
+.search-section .btn-primary {
+    border-radius: 8px;
+    padding: 14px 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 123, 255, 0.2);
+}
+
+.search-section .btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 767px) {
+    .nav {
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .search-section {
+        padding: 100px 0;
+    }
+
+    .slogan {
+        font-size: 1.5rem;
+    }
+}
+
+/* iocns */
+
+.job-categories {
+    padding: 50px 20px;
+    background-color: white;
+    text-align: center;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .category-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .category-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 15px;
+  }
+  
+
+
+
+
+  
+  
+  
+
+/* quotes */
+.quote-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e0dfdf;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin: 50px auto;
+    max-width: 1000px;
+    gap: 30px;
+}
+
+.quote-content {
+    max-width: 70%;
+}
+
+blockquote {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: rgb(15, 12, 12);
+    margin: 0 0 10px 0;
+}
+
+cite {
+    display: block;
+    font-weight: bold;
+    color:rgb(15, 12, 12);
+}
+
+.quote-image img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #0a0e12;
+}
+
+
+
+
+/* <footer> */
+
+.footer-bg {
+    background-color: #000000;
+    color: #ccc;
+}
+
+.footer-padding {
+    padding: 60px 0;
+}
+.footer-tittle {
+    padding-top: 20px;  /* Add this */
+}
+
+.footer-tittle h4 {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.footer-tittle p,
+.footer-tittle ul li,
+.footer-copy-right {
+    color: #bbb;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-tittle ul {
+    padding: 0;
+    list-style: none;
+}
+
+.footer-tittle ul li {
+    margin-bottom: 10px;
+}
+
+.footer-tittle ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-tittle ul li a:hover {
+    color: #ff7a68;;
+}
+
+.footer-form {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.footer-form input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background: #333;
+    color: #fff;
+}
+
+.footer-form button {
+    background:#ff7a68;
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.footer-form button:hover {
+    background: #ff7a68;;
+}
+
+.footer-social a {
+    color: #ccc;
+    font-size: 18px;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color:#ff7a68;;
+}
+
+.footer-copy-right {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .footer-form {
+        flex-direction: column;
+    }
+
+    .footer-form button {
+        width: 100%;
+    }
+
+    .footer-social {
+        margin-top: 10px;
+        text-align: center;
+    }
+}

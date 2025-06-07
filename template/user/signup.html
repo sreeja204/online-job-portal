@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="{% static 'usersignin.css' %}"> -->
+     <style>
+        /* sign.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8f9fa;
+    /* background: linear-gradient(135deg, rgb(49, 48, 48),rgb(107, 105, 105)); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.signup--container {
+    background-color: #ffffff;
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.signup--container h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 0.9rem;
+    background-color:  white;
+    color: black;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: 2px solid #000;  /* ← Add this line */
+}
+
+button:hover {
+    background-color: white;
+}
+     </style>
+</head>
+<body>
+    <div class="signup--container">
+        <h3>create your account</h3>
+        <form name="signup" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label name="username">NAME</label>
+                <input type="text" name="username" id="name" placeholder="enter your full name" required>
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="email">EMAIL ADDRESS</label>
+                <input type="email" name="email" id="email" placeholder="enter yor emailaddress" required>
+                <br>
+            </div>
+            <div class="form-group">
+                <label name="password">PASSWORD</label>
+                <input type="password" name="password" id="password" placeholder="create a password" required>
+                <br>
+            </div>
+            <button type="submit">CONTINUE</button>
+        </form>
+        <p>Already have an account?</p>
+        <a href="{% url 'login' %}">login</a>
+    </div>
+</body>
+</html>

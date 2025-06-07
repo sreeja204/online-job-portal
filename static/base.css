@@ -1,0 +1,144 @@
+*,::after,::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0 100px;
+    background-color:  #fff;
+
+}
+
+.nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+
+.logo {
+        width: 70px;
+        height: auto;
+        display: block;
+        margin-left: 0; /* Remove default spacing */
+}
+.nav ul{
+    display: flex;
+    list-style: none;
+}
+
+.nav ul li{
+    margin-right: 30px;
+}
+
+.nav ul li a{
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-family: sans-serif;
+    font-size: 17px;
+}
+
+.nav ul .active::after{
+    content: '';
+    width: 50%;
+    height: 3px;
+    background-color: #ff511c;
+    display: flex;
+    position: relative;
+    margin-left: 10px;
+}
+
+
+
+
+/* Login buttons container */
+.login-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Login button styling */
+.login-buttons .btn {
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+.btn-outline-primary {
+    border: 2px solid #007bff;
+    background-color: transparent;
+    color: #007bff;
+}
+
+/* Hover effect for outline button */
+.login-buttons .btn-outline-primary:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Style the login buttons section */
+.login-buttons {
+    align-items: center;
+}
+
+/* Style the dropdown toggle button */
+.dropdown .btn-primary {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+
+/* Optional: Adjust dropdown menu styling */
+.dropdown-menu {
+    min-width: 160px;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Center text inside the dropdown item */
+.dropdown-item {
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Adjust spacing if needed */
+.nav .dropdown {
+    margin-left: 1rem;
+}
+
+
+
+
+.footer {
+    background-color: #343a40; /* dark background */
+    color: white;
+    padding: 40px 0;
+    margin-top: 50px;
+  }
+  
+  .footer a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: 15px;
+    transition: color 0.3s;
+  }
+  
+  .footer a:hover {
+    color: #0dcaf0; /* Bootstrap's cyan highlight */
+    text-decoration: underline;
+  }
+  
+  .footer p {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  
+  .footer .container {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  

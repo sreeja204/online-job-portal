@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'recrusign.css' %}">
+</head>
+<body>
+    <div class="signup--container">
+        <h3>create your account</h3>
+        <form name="signup" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label name="username">Name</label>
+                <input type="text" name="username" id="name" placeholder="enter your full name" required>
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" name="email" id="email" placeholder="enter yor emailaddress" required>
+                <br>
+            </div>
+            <div class="form-group">
+                <label name="password">password</label>
+                <input type="password" name="password" id="password" placeholder="create a password" required>
+                <br>
+            </div>
+            <button type="submit">continue</button>
+        </form>
+        <p>already have an account?</p>
+        <a href="{% url 'recruiter_login' %}">login</a>
+    </div>
+</body>
+</html>
+
+
+
+
+
+<!-- {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recruiter Signup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f5f5f5;
+        }
+        .signup-box {
+            background-color: white;
+            max-width: 400px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .signup-box h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-box">
+        <h2>Recruiter Signup</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="company_name">Company Name:</label>
+            <input type="text" name="company_name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" required>
+
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" name="confirm_password" required>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <div class="login-link">
+            Already have an account? <a href="{% url 'recruiter_login' %}">Login here</a>
+        </div>
+    </div>
+</body>
+</html> -->

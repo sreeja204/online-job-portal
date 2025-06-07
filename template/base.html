@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}User Profile{% endblock %}</title>
+    
+
+    <!-- Link to base.css for common styles -->
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+
+    <!-- Link to profile.css for user profile-specific styles -->
+    <link rel="stylesheet" href="{% static 'userprofile.css' %}">
+
+   
+
+    <!-- Bootstrap CSS (if you're using Bootstrap for layout) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-pzjw8f+ua7Kw1TIq0v8Fq5e+bMpfSMksY0I1RM2Tx9lLfSrryf4a6MjXh+5QKk0L" crossorigin="anonymous">
+
+    <!-- Optional: Include Google Fonts or other font links if needed -->
+    <link href="https://fonts.googleapis.com/css2?family=Arial:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Other meta tags, icons, etc. -->
+    {% block extra_head %}
+    {% endblock %}
+</head>
+
+<body>
+    <!-- nabvarr -->
+    <section class="menu">
+        <div class="nav">
+            <img src="{% static 'images/logo3.png' %}" alt="Logo" class="logo" width="30" height="24" class="d-inline-block align-text-top">
+            
+            <ul>
+              <li><a class="active" href="{% url 'first' %}">HOME</a></li>
+              <li><a href="{% url 'job_listings' %}">JOB LISTING</a></li>
+              <li><a href="{% url 'about' %}">ABOUT US</a></li>
+              <li><a href="{% url 'contact' %}">CONTACT US</a></li>
+          </ul>
+            <div class="login-buttons d-flex gap-2">
+              
+              <!-- <a href="{% url 'login' %}" class="btn btn-primary">User Login</a> -->
+              <!-- {% if user.is_authenticated %}
+              <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                  User Profile
+                </button>
+                
+              </div>
+              {% else %}
+              <a href="{% url 'login' %}" class="btn btn-primary">User Login</a>
+              {% endif %} -->
+              
+          </div>
+          
+        
+        </div>
+    </section>
+
+
+    <!-- page content -->
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+
+    <!-- footer -->
+     <!-- templates/footer.html -->
+<section class="footer">
+<footer class="bg-dark text-white py-4 mt-5">
+    <div class="container text-center">
+      <p class="mb-1">© {{ year }} Jooobbb. All rights reserved.</p>
+      <p>
+        <a href="#" class="text-white me-3">Privacy Policy</a>
+        <a href="#" class="text-white me-3">Terms</a>
+        <a href="#" class="text-white">Contact Us</a>
+      </p>
+    </div>
+  </footer>
+</section>
+  
+</body>
+</html>
+
+
+

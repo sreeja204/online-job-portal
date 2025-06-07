@@ -1,0 +1,505 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jooobbb</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+   
+    <style>
+        /* General Reset and Fonts */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: white;
+}
+
+/* Navbar */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 15px 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav .logo {
+    width: 70px;
+    height: auto;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav ul li a:hover,
+.nav ul li a.active {
+    color: black;
+}
+
+.login-buttons a {
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 25px;
+    background-color: white !important;
+    color: black !important;
+    border: 1px solid #ccc !important;
+    text-decoration: none;
+    box-shadow: none !important;
+}
+
+/* Remove blue border and glow on focus or click */
+.login-buttons a:focus,
+.login-buttons a:active {
+    background-color: white !important;
+    color: black !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+
+
+
+/* Search Section */
+.search-section {
+    background: url("/static/images/lap.webp") no-repeat center center;
+    background-size: cover;
+    position: relative;
+    min-height: 700px; /* Increase from 400px to 600px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px; /* More top/bottom padding */
+    color: white;
+    z-index: 1;
+}
+
+
+.search-section::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    
+}
+
+.search-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.search-section .slogan {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.search-section input,
+.search-section select {
+    border-radius: 8px;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+}
+
+.search-section button {
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .login-buttons {
+        margin-top: 10px;
+    }
+
+    .search-section .slogan {
+        font-size: 1.8rem;
+    }
+}
+
+
+/* iocns */
+
+.job-categories {
+    padding: 50px 20px;
+    background-color: white;
+    text-align: center;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 70px;
+    max-width: 1200px;
+    height: 450px;
+    margin: 0 auto;
+  }
+  
+  .category-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .category-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 15px;
+  }
+
+
+  /* quotes */
+.quote-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border: 2px solid #000;  /* ← Add this line */
+    margin: 50px auto;
+    max-width: 1000px;
+    gap: 30px;
+}
+
+.quote-content {
+    max-width: 70%;
+}
+
+blockquote {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: rgb(15, 12, 12);
+    margin: 0 0 10px 0;
+}
+
+cite {
+    display: block;
+    font-weight: bold;
+    color:rgb(15, 12, 12);
+}
+
+.quote-image img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #0a0e12;
+}
+
+
+/* Footer Section */
+footer {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 50px;
+}
+
+.footer-bg {
+    background-color: #0b3e49;
+    color: white;
+    padding: 60px 0 30px;
+}
+
+.footer-tittle h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.footer-tittle p,
+.footer-tittle ul li,
+.footer-tittle ul li a {
+    font-size: 15px;
+    color: #ccc;
+    line-height: 1.7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-tittle ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-tittle ul li a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Newsletter Form */
+.footer-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-form input[type="email"] {
+    padding: 10px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.footer-form button {
+    background-color: #ffffff;
+    color: #0b3e49;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.footer-form button:hover {
+    background-color: #cccccc;
+    color: #0b3e49;
+}
+
+/* Bottom Row */
+.footer-copy-right {
+    margin: 0;
+    color: #bbb;
+    font-size: 14px;
+}
+
+.footer-social a {
+    display: inline-block;
+    color: #ccc;
+    margin-left: 15px;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #ffffff;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+    .footer-form {
+        flex-direction: column;
+    }
+
+    .footer-social {
+        margin-top: 10px;
+    }
+
+    .footer-social a {
+        margin: 0 10px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <section class="menu">
+        <div class="nav">
+            <img src="{% static 'images/logo3.png' %}" alt="Logo" class="logo" width="30" height="24">
+            <ul>
+                <li><a class="active" href="{% url 'first' %}">HOME</a></li>
+                <li><a href="{% url 'job_listings' %}">JOB LISTING</a></li>
+                <li><a href="{% url 'about' %}">ABOUT US</a></li>
+                <li><a href="{% url 'contact' %}">CONTACT US</a></li>
+            </ul>
+            <div class="login-buttons d-flex gap-2">
+                <a href="{% url 'recruiter_login' %}" class="btn btn-outline-primary">Recruiter Login</a>
+                <a href="{% url 'login' %}" class="btn btn-primary">User Login</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="search-section">
+        <div class="container text-center py-5">
+            <h2 class="slogan mb-4 text-white">Where Careers Take Off!</h2>
+            <form method="GET" action="{% url 'job_listings' %}">
+                <div class="row justify-content-center">
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <input type="text" name="job_title_or_company_name" class="form-control form-control-lg" placeholder="Job title" />
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <input type="text" name="location" class="form-control form-control-lg" placeholder="Location" />
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <select name="job_type" class="form-control form-control-lg">
+                            <option value="">Select Job Type</option>
+                            <option value="1">Full Time</option>
+                            <option value="2">Part Time</option>
+                            <option value="3">Internship</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block w-100">Search Job</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="job-categories">
+      <h2 class="section-title">Popular Job Categories</h2>
+      <div class="category-grid">
+        <a href="{% url 'job_listings' %}?category=IT" class="category-card">
+          <img src="{% static 'icons/it.png' %}" alt="IT & Software">
+          <p>IT & Software</p>
+        </a>
+        <a href="{% url 'job_listings' %}?category=Sales" class="category-card">
+          <img src="{% static 'icons/sales.png' %}" alt="Sales & Marketing">
+          <p>Sales & Marketing</p>
+        </a>
+        <a href="{% url 'job_listings' %}?category=Finance" class="category-card">
+          <img src="{% static 'icons/finance.png' %}" alt="Finance">
+          <p>Finance</p>
+        </a>
+        <a href="{% url 'job_listings' %}?category=Design" class="category-card">
+          <img src="{% static 'icons/design.png' %}" alt="Design">
+          <p>Design</p>
+        </a>
+        <a href="{% url 'job_listings' %}?category=Health" class="category-card">
+          <img src="{% static 'icons/health.png' %}" alt="Healthcare">
+          <p>Health Care</p>
+        </a>
+        <a href="{% url 'job_listings' %}?category=Education" class="category-card">
+          <img src="{% static 'icons/education.png' %}" alt="Education">
+          <p>Education</p>
+        </a>
+      </div>
+    </section>
+    
+    
+    <section class="quote-section">
+        <div class="quote-content">
+            <blockquote> "The only way to do great work is to love what you do."</blockquote>
+            <cite>— Steve Job</cite>
+        </div>
+        <div class="quote-image">
+            <img src="{% static 'images/steve.webp' %}" alt="Eleanor Roosevelt">
+        </div>
+    </section>
+   
+   
+    <footer>
+        <div class="footer-bg" style="background-color: #0b3e49; color: white;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="footer-tittle">
+                            <h4>About Us</h4>
+                            <p>We connect job seekers with top recruiters through a seamless portal designed for success.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="footer-tittle">
+                            <h4>Contact Info</h4>
+                            <ul>
+                                <li><p>123 Recruiter Lane, Kochi, Kerala</p></li>
+                                <li><a href="#">Phone: +91 9876543210</a></li>
+                                <li><a href="#">Email: support@jobportal.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="footer-tittle">
+                            <h4>Important Links</h4>
+                            <ul>
+                          <li><a href="#">Home</a></li>
+                          <li><a href="#">Browse Jobs</a></li>
+                          <li><a href="#">Post a Job</a></li>
+                          <li><a href="#">Recruiter Login</a></li>
+                          <li><a href="#">Help & Support</a></li>
+                      </ul>
+                  </div>
+              </div>
+
+              <div class="col-md-6 col-lg-3 mb-4">
+                  <div class="footer-tittle">
+                      <h4>Newsletter</h4>
+                      <p>Subscribe to get latest job alerts and career tips!</p>
+                      <form class="footer-form">
+                          <input type="email" placeholder="Email Address" required>
+                          <button type="submit">Subscribe</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+
+          <hr style="border-color:#444;">
+
+          <div class="row align-items-center text-center text-md-start">
+              <div class="col-md-6 mb-3 mb-md-0">
+                  <p class="footer-copy-right">
+                      &copy; <script>document.write(new Date().getFullYear());</script> JobPortal. All rights reserved.
+                  </p>
+              </div>
+              <div class="col-md-6 text-md-end">
+                  <div class="footer-social">
+                      <a href="#"><i class="fab fa-facebook-f"></i></a>
+                      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                      <a href="#"><i class="fab fa-twitter"></i></a>
+                      <a href="#"><i class="fab fa-instagram"></i></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</footer>
+
+</body>
+</html>
+
+  
+
+
+

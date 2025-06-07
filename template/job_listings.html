@@ -1,0 +1,200 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+          font-family: 'Poppins', sans-serif;
+          background-color: #f7f9fc;
+          color: #333;
+          margin: 0;
+          padding: 0;
+        }
+
+
+        /* NAVBAR STYLING */
+.nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 20px 80px;
+    background-color: #fff;
+    position: relative;
+    z-index: 10;
+}
+
+/* Logo on the far left */
+.logo {
+    width: 70px;
+    height: auto;
+}
+
+/* Absolute center nav links */
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-center ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+}
+
+.nav-center ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.nav-center ul .active::after {
+    content: '';
+    width: 50%;
+    height: 3px;
+    display: block;
+    margin: 5px auto 0;
+  
+}
+      
+        header {
+          background: linear-gradient(135deg, rgb(49, 48, 48), rgb(107, 105, 105));
+          color: white;
+          padding: 60px 20px;
+          text-align: center;
+        }
+      
+        header h1 {
+          margin-bottom: 10px;
+          font-size: 48px;
+        }
+      
+        .container {
+          max-width: 1000px;
+          margin: 40px auto;
+          padding: 0 20px;
+        }
+      
+        .job-card {
+          background: white;
+          padding: 30px;
+          margin-bottom: 30px;
+          border-radius: 12px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+      
+        .job-card h2 {
+          margin-top: 0;
+          color: #000;
+          font-size: 26px;
+        }
+      
+        .job-card .company {
+          font-weight: 600;
+          color: #555;
+        }
+      
+        .job-card .description {
+          margin: 15px 0;
+          line-height: 1.6;
+        }
+      
+        .job-card .meta {
+          font-size: 14px;
+          color: #777;
+        }
+      
+        .apply-btn {
+          display: inline-block;
+          margin-top: 15px;
+          background-color: rgb(107, 105, 105);
+          color: white;
+          padding: 12px 25px;
+          font-size: 16px;
+          border-radius: 8px;
+          text-decoration: none;
+          transition: background 0.3s ease;
+        }
+      
+        .apply-btn:hover {
+          background-color: rgb(49, 48, 48);
+        }
+      
+        .no-jobs {
+          text-align: center;
+          font-size: 18px;
+          color: #555;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color:rgb(49, 48, 48);
+            color: white;
+            margin-top: 40px;
+        }
+      
+      </style>
+</head>
+<body>
+
+    <section class="menu">
+        <div class="nav">
+            <img src="{% static 'images/logo3.png' %}" alt="Logo" class="logo">
+            <div class="nav-center">
+                <ul>
+                    <li><a class="active" href="{% url 'first' %}">HOME</a></li>
+                    <li><a href="{% url 'job_listings' %}">JOB LISTING</a></li>
+                    <li><a href="{% url 'about' %}">ABOUT US</a></li>
+                    <li><a href="{% url 'contact' %}">CONTACT US</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <header>
+        <h1>Explore All Job Opportunities</h1>
+        <p>Find the perfect role that matches your passion</p>
+      </header>
+      
+      <div class="container">
+        {% if jobs %}
+          {% for job in jobs %}
+            <div class="job-card">
+              <h2>{{ job.title }}</h2>
+              <p class="company">{{ job.company_name }}</p>
+              <p class="description">{{ job.description|truncatewords:25 }}</p>
+              <p class="meta">Location: {{ job.location }} | Posted: {{ job.posted_at|date:"M d, Y" }}</p>
+      
+              {% if user.is_authenticated %}
+                <a href="{% url 'apply_job' job.id %}" class="apply-btn">Apply</a>
+              {% else %}
+                <p>Please <a href="{% url 'login' %}">login</a> to apply.</p>
+              {% endif %}
+            </div>
+          {% endfor %}
+        {% else %}
+          <p class="no-jobs">No job postings available at the moment. Check back soon!</p>
+        {% endif %}
+      </div>
+
+      <footer>
+        &copy; 2025 Your Job Portal. All Rights Reserved.
+    </footer>
+
+
+    
+</body>
+</html>
+
+
+
+
+
+
+

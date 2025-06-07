@@ -1,0 +1,65 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7fa;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.profile-info p {
+    font-size: 16px;
+    color: #333;
+    margin: 8px 0;
+}
+
+.profile-info strong {
+    color: #333;
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    text-decoration: none;
+    background-color: rgb(107, 105, 105);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background-color: rgb(107, 105, 105);
+}
+
+.btn.back {
+    background-color: #6c757d;
+}
+
+.btn.back:hover {
+    background-color: #5a6268;
+}
+

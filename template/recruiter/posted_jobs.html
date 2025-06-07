@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Posted Jobs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'postedjobs.css' %}">
+    <style>
+          /* General Reset */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    color: black;
+}
+
+/* Wrapper */
+.jobs-wrapper {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+/* Title */
+.jobs-wrapper h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Job List */
+.job-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+
+/* Job Card */
+.job-card {
+    background-color: #f4f7fa;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid black;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.job-card h2 {
+    font-size: 1.4rem;
+    color: #34495e;
+    margin-bottom: 10px;
+}
+
+.job-card p {
+    font-size: 0.95rem;
+    margin: 6px 0;
+    color: #555;
+}
+
+.job-card em {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+/* Back Button Styling (already in your template inline) */
+.profile-actions {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.profile-actions .btn.back {
+    padding: 0.8rem 2rem;
+    background-color:white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.profile-actions .btn.back:hover {
+    background-color:white;
+    color: black;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .job-card {
+        padding: 15px;
+    }
+
+    .jobs-wrapper h1 {
+        font-size: 1.8rem;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="jobs-wrapper">
+        <h1>Your Posted Jobs</h1>
+
+        {% if jobs %}
+            <div class="job-list">
+                {% for job in jobs %}
+                    <div class="job-card">
+                        <h2>{{ job.title }}</h2>
+                        <p><strong>Location:</strong> {{ job.location }}</p>
+                        <p><strong>Type:</strong> {{ job.get_job_type_display }}</p>
+                        <p><strong>Salary:</strong> ${{ job.salary }}</p>
+                        <p><strong>Description:</strong> {{ job.description|truncatechars:150 }}</p>
+                        <p><em>Posted at: {{ job.posted_at }}</em></p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No jobs posted yet.</p>
+        {% endif %}
+
+        <div class="profile-actions">
+            <a href="{% url 'recruiter_dashboard' %}" class="btn back">← Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>
