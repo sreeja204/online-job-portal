@@ -18,7 +18,6 @@ A modern and user-friendly job portal built using **Django**, **HTML/CSS**, and 
 
 ---
 
-## 📸 Screenshots
 
 ### 🏠 Homepage
 ![Homepage](projectpro/assets/homepage.png)
@@ -26,7 +25,7 @@ A modern and user-friendly job portal built using **Django**, **HTML/CSS**, and 
 ### 🧑‍💼 Recruiter Dashboard
 ![Recruiter Page](projectpro/assets/recruiterpage.png)
 
-### 👤 User Profile Page
+### 👤 User Page
 ![User Page](projectpro/assets/userpage.png)
 
 ---
@@ -49,5 +48,5 @@ A modern and user-friendly job portal built using **Django**, **HTML/CSS**, and 
 ## 🙋‍♀️ Author
 
 **Sreeja P.**  
-📧 [YourEmail@example.com]  
+📧 [sreejavenkiteshp@example.com]  
 🔗 [GitHub Profile](https://github.com/sreeja204)
